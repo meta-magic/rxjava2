@@ -48,20 +48,9 @@ import io.reactivex.subscribers.DefaultSubscriber;
  */
 
 // public class FruitProcessor<T extends Fruit> extends DefaultSubscriber<Fruit> implements Function<T, Boolean> {
+
 public class FruitProcessor<T extends Fruit> 
 	extends DefaultSubscriber<Fruit> implements Predicate<T>, Observer<Fruit> {
-
-	/**
-	 * Rx Java 1.x Function Implementation
-	 * Returns TRUE if the Fruit Weight is Greater than the given Weight
-	 * 
-	 * @param _fruit Sets the Fruit to check the weight
-	 * @return Boolean Returns TRUE if the Fruit Weight is Greater than the given Weight
-	 *
-		public Boolean call(T _fruit) {
-			return (_fruit.weight() > weight);
-		}
-	*/
 	
 	/**
 	 * Rx Java 2.x Function Implementation
@@ -181,5 +170,18 @@ public class FruitProcessor<T extends Fruit>
 		// TODO Auto-generated method stub
 		
 	}	
+	
+
+	/**
+	 * Rx Java 1.x Function Implementation
+	 * Returns TRUE if the Fruit Weight is Greater than the given Weight
+	 * 
+	 * @param _fruit Sets the Fruit to check the weight
+	 * @return Boolean Returns TRUE if the Fruit Weight is Greater than the given Weight
+	 *
+	 public Boolean call(T _fruit) {
+			return (_fruit.weight() > weight);
+	 }
+	*/
 
 }

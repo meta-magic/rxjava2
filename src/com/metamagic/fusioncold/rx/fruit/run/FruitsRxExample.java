@@ -59,7 +59,7 @@ public class FruitsRxExample {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("\nATS> Rx Java 2 Starting the Async Test Suite 1...................");
+		System.out.println("\nATS> Rx 2 Java Ex.1 Starting the Async Test Suite 1...................");
 
 		// Java 6 and Java 8 Examples
 		runJavaExamples();
@@ -67,21 +67,21 @@ public class FruitsRxExample {
 		// RxJava Examples
 		runRxExamples();
 
-		System.out.println("\nATS> Rx Java 2 Async Test Suite 1 Commpleted .....................");
+		System.out.println("\nATS> Rx 2 Java Ex.1 Async Test Suite 1 Commpleted .....................");
 	}
 	
 	public static void runJavaExamples() {
 		FruitsRxExample rx = new FruitsRxExample();
 		
-		System.out.println("ATS> Loading the Test Suite with Sample Data...");
+		System.out.println("ATS> Rx2 Loading the Test Suite with Sample Data...");
 		
-		System.out.println("\nATS> Running Iterable Apple Test Case................");
+		System.out.println("\nATS> Rx2 Running Iterable Apple Test Case................");
 		rx.testIterable(new FruitBasketRepository<Apple>());
 		System.out.println("ATS> Iterable Test Case Complete...............");
 		
-		System.out.println("\nATS> Running Parallel Streams Orange Test Case........");
+		System.out.println("\nATS> Rx2 Running Parallel Streams Orange Test Case........");
 		rx.testParallelStream(new FruitBasketRepository<Orange>());
-		System.out.println("ATS> Parallel Stream Test Case Complete........");
+		System.out.println("ATS> Rx2 Parallel Stream Test Case Complete........");
 	}
 	public static void runRxExamples() {
 		
@@ -92,13 +92,13 @@ public class FruitsRxExample {
 			e1.printStackTrace();
 		}
 		
-		System.out.println("\nATS> Running Rx Observable Test Case O1..............");
+		System.out.println("\nATS> Rx2 Running Rx Observable Test Case O1..............");
 		rx.testObservable1();;
-		System.out.println("ATS> Rx Observable Test Case Scheduled O1.............\n");
+		System.out.println("ATS> Rx2 Observable Test Case Scheduled O1.............\n");
 
-		System.out.println("\nATS> Running Rx Observable Test Case O2............");
+		System.out.println("\nATS> Rx2 Running Rx Observable Test Case O2............");
 		rx.testObservable2();;
-		System.out.println("ATS> Rx Observable Test Case Schduled O2............\n");
+		System.out.println("ATS> Rx2 Observable Test Case Schduled O2............\n");
 		
 		// To Keep the Program running until the Threads finish its jobs.
 		
@@ -165,12 +165,12 @@ public class FruitsRxExample {
 	
 	/**
 	 * Observable : Completely Asynchronous - 1
-	 * Functional Reactive Programming : Rx Java
+	 * Functional Reactive Programming : Rx 2 Java
 	 */
 	public void testObservable1() {
 		
 		Observable<Fruit> basket = fruitBasketObservable();
-		Observer<Fruit> fp = new FruitProcessor<Apple>("Rx");
+		Observer<Fruit> fp = new FruitProcessor<Apple>("Rx2");
 		
 		basket
 			.observeOn(Schedulers.computation())
@@ -185,7 +185,7 @@ public class FruitsRxExample {
 
 	/**
 	 * Observable : Completely Asynchronous - 2
-	 * Functional Reactive Programming : Rx Java
+	 * Functional Reactive Programming : Rx 2 Java
 	 */	
 	public void testObservable2() {
 		

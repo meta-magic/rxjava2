@@ -52,12 +52,12 @@ public class FruitsRxExamples2 {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("\nATS> Rx Java 2 Starting the Async Test Suite 2.......................");
+		System.out.println("\nATS> Rx 2 Java Ex.2 Starting the Async Test Suite 2.......................");
 		FruitsRxExamples2 rx = new FruitsRxExamples2();
 		
-		System.out.println("\nATS> Merging Three Streams Async Test......................");
+		System.out.println("\nATS> Rx2 Merging Three Streams Async Test......................");
 		rx.mergeThreeTeams();
-		System.out.println("ATS> Merging Three Streams Async Test Scheduled............ \n");
+		System.out.println("ATS> Rx2 Merging Three Streams Async Test Scheduled............ \n");
 		
 		try {
 			Thread.sleep(7000);
@@ -66,10 +66,10 @@ public class FruitsRxExamples2 {
 		}
 	
 		int weight = 51;
-		System.out.println("\nATS> Merging Three Streams & Filter Async Test......................");
-		System.out.println("ATS> Filter Criteria : Weight > "+weight);
+		System.out.println("\nATS> Rx2 Merging Three Streams & Filter Async Test......................");
+		System.out.println("ATS> Rx2 Filter Criteria : Weight > "+weight);
 		rx.filterFruitsOnWeight(weight);
-		System.out.println("ATS> Merging Three Streams & Filter Async Test Scheduled............ \n");
+		System.out.println("ATS> Rx2 Merging Three Streams & Filter Async Test Scheduled............ \n");
 		
 		try {
 			Thread.sleep(7000);
@@ -78,10 +78,10 @@ public class FruitsRxExamples2 {
 		}
 		int take = 5;
 		// weight = 60;
-		System.out.println("\nATS> Merging Three Streams & Filter / Sort Price (Asc) Async Test........");
-		System.out.println("ATS> Filter Criteria : Weight > "+weight+ " Take = "+take);
+		System.out.println("\nATS> Rx2 Merging Three Streams & Filter / Sort Price (Asc) Async Test........");
+		System.out.println("ATS> Rx2 Filter Criteria : Weight > "+weight+ " Take = "+take);
 		rx.filterSortAndTake(weight, take);
-		System.out.println("ATS> Merging Three Streams & Filter / Sort Async Test Scheduled............ \n");
+		System.out.println("ATS> Rx2 Merging Three Streams & Filter / Sort Async Test Scheduled............ \n");
 
 		try {
 			Thread.sleep(7000);
@@ -89,10 +89,10 @@ public class FruitsRxExamples2 {
 			e.printStackTrace();
 		}
 
-		System.out.println("\nATS> Merging Three Streams & Filter / Sort Price (Asc) / Flat Map Async Test........");
-		System.out.println("ATS> Filter Criteria : Weight > "+weight+ " Take = "+take);
+		System.out.println("\nATS> Rx2 Merging Three Streams & Filter / Sort Price (Asc) / Flat Map Async Test........");
+		System.out.println("ATS> Rx2 Filter Criteria : Weight > "+weight+ " Take = "+take);
 		rx.filterSortFlatMapTake(weight, take);
-		System.out.println("ATS> Merging Three Streams & Filter / Sort / Flat Map Async Test Scheduled............ \n");
+		System.out.println("ATS> Rx2 Merging Three Streams & Filter / Sort / Flat Map Async Test Scheduled............ \n");
 
 		try {
 			Thread.sleep(7000);
@@ -100,13 +100,13 @@ public class FruitsRxExamples2 {
 			e.printStackTrace();
 		}
 		
-		System.out.println("\nATS> Rx Java 2 Async Test Suite 2 Complete .....................");
+		System.out.println("\nATS> Rx2 Java Ex.2 Async Test Suite 2 Complete .....................");
 	}
 	
 	/**
 	 * Merge Three Data Streams Asynchronously
 	 * 
-	 * RxJava Merge Example - Asynchronous
+	 * Rx 2 Java Merge Example - Asynchronous
 	 */
 	public void mergeThreeTeams() {
 		
@@ -126,7 +126,7 @@ public class FruitsRxExamples2 {
 	}
 	
 	/**
-	 * Filter Fruits based on Weight
+	 * Filter Fruits based on Weight - Rx 2 Java
 	 * 
 	 * @param weight Sets the base weight for the Fruits
 	 */
@@ -153,7 +153,7 @@ public class FruitsRxExamples2 {
 	}
 	
 	/**
-	 * Filter, Sort on Price (Ascending) and Take
+	 * Filter, Sort on Price (Ascending) and Take (Rx 2 Java)
 	 * 
 	 * @param _weight Sets the base weight for the Fruit
 	 * @param _take Sets How many fruits needs to be collected
@@ -184,7 +184,7 @@ public class FruitsRxExamples2 {
 	/**
 	 * Filter, Sort on Price (Ascending), Flat Map and Take
 	 * FlatMap is used to Transform One Observable to another
-	 * 
+	 * (Rx 2 Java)
 	 * @param _weight Sets the base weight for the Fruit
 	 * @param _take Sets How many fruits needs to be collected
 	 */
@@ -196,10 +196,12 @@ public class FruitsRxExamples2 {
 				orangeFruitBasketObservable(),
 				grapesFruitBasketObservable()
 			)
+		
 		.filter(fp.weightFilter())
 		.toSortedList()
 		.flatMapObservable(list -> Observable.fromIterable(list)) 
 		.take(_take)
+		
 		.observeOn(Schedulers.computation())
 		.subscribeOn(Schedulers.computation())
 		.subscribe(

@@ -86,7 +86,7 @@ public class FruitBasketObservableFactory  {
 	}
 	
 	/**
-	 * Creates a Fruit Basket Observable
+	 * Creates a Fruit Basket Observable - Rx 2 Java
 	 * 
 	 * @param _limit Sets the limit for the Apple Basket Observable
 	 * @return Observable Returns Fruit Observable
@@ -119,6 +119,8 @@ public class FruitBasketObservableFactory  {
 		 } );
 		return obs;
 	}
+	
+	
 	/**
 	 * Returns the Orange Basket Observable
 	 * 
